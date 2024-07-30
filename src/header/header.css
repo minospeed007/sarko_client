@@ -1,0 +1,49 @@
+.header-root-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: black;
+}
+.header-title-h1 {
+    display: flex;
+justify-content: center;
+margin-top:1rem;
+    flex-direction: column;
+    align-items: center; 
+}
+.header-title {
+    display: flex;
+    justify-content: center;
+margin-top: 2rem;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.header-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 88%;
+}
+
+.header-h1 {
+    color: rgb(250, 242, 228);
+}
+
+.header-h4 {
+    color: #d8d5d5;
+    border-bottom: 3px solid rgb(255, 196, 0) ;
+    margin-top: 5px; 
+    padding-bottom: 1px; 
+    display: inline;
+
+}
+
+/* Ensure hr has no margin or padding */
+.header-hr {
+    border: 1px solid goldenrod;
+    margin: 0; /* Remove all margins */
+    padding: 0; /* Remove all padding */
+    width: 100%; /* Adjust width as needed */
+}

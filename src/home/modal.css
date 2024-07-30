@@ -1,0 +1,55 @@
+.modal-div {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+ 
+  .modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+    width: 30%;
+    height: 20rem;
+    text-align: center;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color:yellow;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .modal-message {
+    margin-top: 20px;
+  }
+  
+  .modal-message.success {
+    color: green;
+    font-size: 1.2rem;
+  }
+  
+  .modal-message.error {
+    color: red;
+    font-size: 1.2rem;
+
+  }
+  
