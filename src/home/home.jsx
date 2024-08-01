@@ -12,7 +12,7 @@ const Home = () => {
 
   const handleWaitList = async () => {
     try {
-      const res = await axios.post("http://localhost:5000/api/auth", { email });
+      const res = await axios.post("https://sarto-server.onrender.com/api/auth", { email });
       setSuccessMsg(res?.data?.message);
       setEmail('');
       setIsError('');
