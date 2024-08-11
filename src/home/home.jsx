@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './home.css';
-import fashion_pic from '../assets/3D.webp';
+import waitlist_pic from '../assets/waitlist_pic.JPG';
 import user from '../assets/users.png';
 import axios from 'axios';
 import Modal from './modal';  
@@ -42,9 +42,9 @@ const Home = () => {
               </div>
             </div>
             <div className='h1-desc-div'>
-              <h1>Be one of the first to</h1>
-              <h1>revolutionize fashion </h1>
-              <h1 className='h1-dot'>with us</h1>
+              <h1>Discover, follow, and shop</h1>
+              <h1> fashion trends in one </h1>
+              <h1 className='h1-dot'>social platform</h1>
               <div className='desc-div'>
                 Unlock exclusive fashion access to unique,<br />
                 high-end designs, collaborations<br /> with top talents and brands.<br />
@@ -58,7 +58,7 @@ const Home = () => {
             </div>
           </div>
           <div className='home-img-div'>
-            <img src={fashion_pic} alt='fashion' className='home-img' />
+            <img src={waitlist_pic } alt='fashion' className='home-img' />
           </div>
         </div>
       </div>
@@ -75,7 +75,7 @@ const Home = () => {
           onClick={handleWaitList} 
           className='join-btn'
         >
-          Join Live Event Waitlist
+          Join the waitlist
         </button>
       </div>
        {isError && <Modal message={isError} type="error" onClose={closeModal} />}
