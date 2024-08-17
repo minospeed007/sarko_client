@@ -45,8 +45,6 @@ const About= () => {
                   </span>
                 </div>
                 </div>
-
-
                 
 
                 <div className='img-div-about'>
@@ -58,18 +56,27 @@ const About= () => {
 
             <div className='mission-vision-div'>
               <div className='mission-div'>
+              <div className='sarto-mission-text'>
+
                 <span className='mission-span-text'>Mission</span>
+
                 <span className='sarto-text-desc'> 
                     Our mission is to connect you 
                   with amazing fashion creators and provide a personalized shopping experience that reflects your unique style.
                 </span>
+                </div>
               </div>
               <div className='vision-div'>
+              <div className='sarto-mission-text'>
+
                 <span className='mission-span-text'>Vision</span>
+
                 <span className='sarto-text-desc'> 
            Our mission is to connect you 
                   with amazing fashion creators and provide a personalized shopping experience that reflects your unique style.
                 </span>
+                </div>
+
               </div>
             </div>
 
@@ -108,7 +115,7 @@ const About= () => {
 
                   <span className='founder-span-name'>Nonso Okeke</span>
 
-                  <span className='founder-span-text'>CTO & Co-Founder</span>
+                  <span className='founder-span-text'>CTO</span>
 
                 </div>
                 <div> 
@@ -118,9 +125,10 @@ const About= () => {
           </div>
           
 
+
          
         <div className='unique-title-div'>
-          <h1>What makes us unique</h1>
+         <div className='unique-h1-div'> <h1>What makes us unique</h1></div>
           <div className='unique-text-div'>
           
           <div className='unique-subdiv'>
@@ -186,7 +194,7 @@ const About= () => {
           </div>
           <div className='commit-text-div'>
             <div className='div-commit'>
-          <span className='text-desc'>
+            <span className='text-desc'>
             We are committed to providing you with a shopping experience that is not only enjoyable but also reliable.
             Our platform ensures secure transactions, high-quality products, and exceptional customer service.
           </span>
@@ -216,13 +224,14 @@ const About= () => {
             Follow us on social media to 
             stay updated on the newest arrivals and exclusive offers.
             </span>
-            </div>
+            
             <div className='social-icon-div'>
               <div className='social-divs'><ImFacebook2 className='social-icon'/></div>
               <div className='social-divs'>< BsTwitterX className='social-icon'/></div>
               <div className='social-divs' ><BsInstagram className='social-icon'/></div>
               <div className='social-divs'><SiYoutube className='social-icon'/></div>
 
+            </div>
             </div>
             </div>
       </div>

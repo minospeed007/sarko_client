@@ -38,7 +38,7 @@
 
 .about-parent-div {
     display: flex;
-    width: 80%;
+    width: 85%;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -84,20 +84,26 @@ width: 60%;
    
     text-align:left;
     width:95%;
-    font-size: 20px;
-    opacity: 0.7;
+    opacity: .8;
+    margin-top:1.5rem;
     margin-left:.5rem;
     margin-bottom: 40px;
 
+}
+.sarto-mission-text{
+   display:flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   gap:1rem; 
 }
 
 .sarto-text-desc {
     font-family: Arial, Helvetica, sans-serif;
     font-style: normal;
     font-size: 20px;
-    color: white;
+    color: rgb(206, 202, 202);
     font-weight:300;
-    opacity: 0.5;
     line-height: 2;
 }
 
@@ -106,7 +112,8 @@ width: 60%;
     font-style: normal;
     font-size: 20px;
     font-weight:300;
-    opacity: 0.5;
+    color: rgb(206, 202, 202);
+
     line-height: 2;
 }
 
@@ -129,8 +136,8 @@ width: 60%;
     padding: 40px 100px 60px 80px;
     width: 50%;
     
-    text-align: left;
-    background: rgba(0, 0, 0, 0.2);
+    text-align: center;
+    background: rgba(122, 114, 114, 0.2);
     flex-direction: column;
   }
 .mission-div >h2{
@@ -204,10 +211,23 @@ width: 60%;
     background-color: rgb(15, 15, 15);
     color: white;
     border-radius: 10px;
+
     width:17rem;
     height: 17rem;
     line-height: 1.5;
     flex-direction:column;
+    
+        
+        border: 2px solid transparent;
+        background-image: 
+            linear-gradient(to right, gold 30%, transparent 25%), /* Top */
+            linear-gradient(to top, gold 30%, transparent 25%), /* Right */
+            linear-gradient(to left, gold 30%, transparent 25%), /* Bottom */
+            linear-gradient(to bottom, gold 30%, transparent 25%); /* Left */
+        background-position: top, right, bottom, left;
+        background-size: 100% 2px, 2px 100%, 100% 2px, 2px 100%;
+        background-repeat: no-repeat;
+    
 }
 .founder-span-name{
     font-family: Arial, Helvetica, sans-serif;
@@ -263,20 +283,37 @@ h1{
     color: white;
     margin: 0;
 }
+.unique-h1-div{
+    margin-bottom:1.5rem ; 
+
+}
 .unique-icon-div {
+    position: relative;
     display: flex;
     align-items: center;
     margin: 0;
-    flex-direction:column;
-    
-min-height: 14rem;   
+    border-top-left-radius: 10px;
+    flex-direction: column;
+    min-height: 17rem;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    border: 2px solid transparent;
+    background-image: 
+        linear-gradient(to right, gold 25%, transparent 25%), 
+        linear-gradient(to top, gold 25%, transparent 25%), 
+        linear-gradient(to left, gold 25%, transparent 25%), 
+        linear-gradient(to bottom, gold 25%, transparent 25%); 
+    background-position: top, right, bottom, left;
+    background-size: 100% 2px, 2px 100%, 100% 2px, 2px 100%;
+    background-repeat: no-repeat;
+    margin-bottom: 2rem;
 }
 
   .unique-subdiv{
     width: 30%;
   }
 .unique-text-div{
-display: flex;  
+display: flex; 
 justify-content: space-between;
 gap: 1rem;
     width: 100%;
@@ -312,7 +349,7 @@ gap: 1rem;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-width: 89%;    
+    width: 85%;
 }
 
 .commit-text-div{
@@ -330,27 +367,28 @@ width: 89%;
     text-align: center;
 }
 .commit-img-div{
+    height: 50%;
     width: 30%;
 }
 .commit-img{
     width:100%;
-    height:100%;
+    height:22rem;
 }
 .commit-root{
     display: flex;
     justify-content: space-around;
     width: 100%;
-    height: 25rem;
+    height: auto;
 }
 .commit-title-div{
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-top: 2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     flex-direction: column;
-    height: 26rem;
-width: 89%;
+    height: auto;
+width: 85%;
 }
 .div-commit{
     width: 55%;
@@ -361,6 +399,8 @@ width: 89%;
     display:flex;
     justify-content: center;
     align-items: flex-end;
+    margin-bottom:1.5rem ; 
+
     width: 100%;
 }
 .commit-h1{
@@ -427,17 +467,565 @@ width: 89%;
     font-size: 1.2rem;
     color: rgb(216, 212, 212);
 }
+.social-span-div{
+    width: 75%;
+}
 .socials-div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 85%;
-    margin-bottom: 3rem;
-    flex-direction: column;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    margin-top:2rem;
+    width:40%;
+    padding-bottom:15px;
+    padding-top:15px;
+    border:1px solid gold;
+    border-radius:10px;
 }
 .social-icon-div{
     display: flex;
     gap:1rem;
     justify-content: center;
     align-items: center;
+}
+@media screen and (max-width:1040px) {
+    .about-parent-div{
+        height: auto;
+        width: 75%;
+
+    }
+    .about_header_img{
+        height: 100%;
+        width: 100%;
+    }
+   
+    .img-div-about{
+        width: 100%;
+    }
+   
+    .span-text-con{
+        height: 100%;
+    }
+    .text-span-container{
+        height: 100%;
+    }
+    .about-text-div{
+        height: 100%;
+    }
+    .about-parent-div{
+        height: auto;
+    }
+    .img-div-about{
+        height: 100%;
+    }
+    .about-text-div{
+        height: 100%;
+        width: 75%;
+
+        gap: 1rem;
+    }
+    .text-span-container{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 100%;
+    }
+    .about_header_img{
+        height: 100%;
+    }
+    .sarto-text-desc{
+        font-size: 1.4rem;
+    }
+    .sarto-text{
+        width: 100%;
+        height: 100%;
+    }
+    .span-text-con{
+        height: 100%;
+        width: 100%;
+        
+    }
+    .about_header_img{
+        height: 100%;
+        width: 100%;
+    }
+   
+    .img-div-about{
+        width: 98%;
+    }
+    .mission-vision-div{
+        width: 90%;
+        height: auto;
+    }
+    .team-title{
+        width: 80%;
+    }
+    .founder-img-div{
+        width: 100%;
+        height: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .founder-span-name{
+        font-size: 1.4rem;
+    }
+    .founder-span-text{
+        font-size: 1.3rem;
+    }
+    .team-title{
+        width: 26%;
+    }
+    .founder-div{
+        width: 100%;
+    }
+    
+    .team-div{
+        width: 95%;
+    }
+    .unique-h1-div{
+        margin-bottom: 2rem;
+    }
+    .unique-title-div{
+        width:95%;
+        height: auto;
+    }
+    .text-desc{
+        font-size: 1.3rem;
+    }
+
+}
+@media screen and (max-width:900px) {
+    .text-span-container{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction:column; }
+        .sarto-text{
+            width:100%;
+            height: auto;
+            margin-bottom: 2rem;
+            margin-top:1rem;
+            text-align:center;
+        }
+        .sarto-mission-text{
+            display:flex;
+            align-items: center;
+            width:100%;
+            flex-direction: column;
+            line-height: 2.5;
+            height: 100%;
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+        .span-text-con{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height: auto;            
+            width:100%;
+        }
+        .about-text-div{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+        .text-span-container{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            width:90%;
+            height: auto;
+        }
+        
+        .about-parent-div {
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            flex-direction:column;           
+             width:95%;
+        }
+        .about_header_img{
+            width:90%;
+            margin-top:1rem;
+            margin-bottom:1rem;
+    border-radius:10px;
+    height:17rem;
+        }
+        .img-div-about{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            width:90%;
+            height:50%;
+
+        }
+       
+    .mission-vision-div{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction:column;
+        width:70%;
+        gap:2rem;
+        height: 45rem;
+        border:1px solid black;
+    }
+    .sarto-text-desc{
+        color:rgb(196, 194, 194);
+        line-height:2.3rem;
+        font-size:25px;
+        font-weight: 500;
+
+    }
+    .text-desc{
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 500;
+        opacity: .8;
+        font-size:23px;
+    }
+    .mission-div{
+        display:flex;
+        flex-direction:column;
+        text-align:center;
+        border:1px solid gold;
+        width:90%;
+        line-height: 1.5rem;
+        height:49%;
+        border-radius:36px;
+        padding: 10px;
+
+    }
+    .vision-div{
+        display:flex;
+        flex-direction:column;
+        text-align:center;
+        border:1px solid gold;
+        width:90%;
+        line-height: 1.5rem;
+        height:49%;
+        border-radius:36px;
+        padding: 10px;
+    }
+    .team-title{
+height:auto;
+        margin-bottom:2rem;
+    }
+    .team-div{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:auto;
+        flex-direction:column; 
+    }
+.founder-div{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column; 
+}
+.unique-h1-div{
+    margin-bottom:1.5rem;
+}
+.unique-text-div{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;  
+}
+.unique-subdiv{
+    width:85%;
+    margin-bottom: 1rem;
+}
+.unique-icon-div{
+    border-radius:30px;
+    border:1px solid gold;
+    background-image: none;
+    width:80%;
+    min-height: 18rem;
+}
+.unique-title-div{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    width:auto;
+    height:auto;  
+}
+.commit-text-div{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+}
+.commit-h1{
+    margin-left:0;
+}
+.commit-h1-div{
+    width:100%;
+}
+.div-commit{
+    margin-left:0;
+    width:100% ;
+    height:auto;
+}
+.commit-img{
+    width:90%;
+    border-radius:10px;
+    height:17rem;
+}
+.commit-img-div{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:90%;
+    margin-top:1rem;
+    margin-bottom:1rem;
+}
+.commit-root{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    height:auto;
+    flex-direction:column;
+}
+.commit-title-div{
+   
+    height:auto;
+}
+.join-us-text-div{
+    margin-top: 1rem;
+    width:90%;
+}
+h1{
+    font-size: 2.2rem;
+}
+
+.social-icon-div{
+    width:100%;
+    margin-top:1.5rem;
+    margin-left:0;
+}
+.follow-div{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+.social-span-div{
+    width:60%;
+    text-align:center;
+}
+.socials-div{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    margin-top:2rem;
+    width:85%;
+    padding-bottom:15px;
+    padding-top:15px;
+    border:1px solid gray;
+    border-radius:10px;
+}
+}
+@media screen and (max-width:899px) {
+    .founder-img-div{
+        margin-bottom: 1.5rem;
+
+    }
+    .founder-div{
+        width: 80%;
+    }
+    .team-title{
+        width: 100%;
+    }
+    .team-div{
+        width: 70%;
+    }
+}
+@media screen and (max-width:781px) {
+    .mission-vision-div{
+        width: 85%;
+        height: auto;
+    }
+    .img-div-about{
+        width:100%;
+        height: 100%;
+    }
+    .about-text-div{
+        height: auto;
+        width: 95%;
+
+        gap: 1rem;
+    }
+    
+}
+
+@media screen and (max-width:600px) {
+    .mission-vision-div{
+        width: 95%;
+        height: auto;
+    }
+    .about-text-div{
+        height: 100%;
+        width: 95%;
+
+        gap: 1rem;
+    }
+}
+
+@media screen and (max-width:490px) {
+    .about-parent-div{
+        height: auto;
+    }
+    .img-div-about{
+        height: 100%;
+    }
+    .about-text-div{
+        height: auto;
+        gap: 1rem;
+        width: 100%;
+    }
+    .text-span-container{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 100%;
+    }
+    .sarto-text{
+        width: 100%;
+        height: 100%;
+    }
+    .span-text-con{
+        height: 100%;
+        width: 98%;
+    }
+    .about_header_img{
+        height: 100%;
+        width: 100%;
+    }
+   
+    .img-div-about{
+        width: 98%;
+    }
+    .unique-icon-div{
+        width: 92%;
+    }
+    .unique-subdiv{
+        width: 98%;
+    }
+    .unique-text-div{
+        width: 95%;
+    }
+    
+    .sarto-mission-text{
+        height: auto;
+        gap: 0;
+    }
+    
+    .mission-div{
+        display:flex;
+        flex-direction:column;
+        text-align:center;
+        border:1px solid gold;
+        width:93%;
+        line-height: 1.5rem;
+        height:50%;
+        border-radius:36px;
+        padding: 10px;
+
+    }
+    .sarto-text-desc{
+        font-size: 1.4rem;
+    }
+    .vision-div{
+        display:flex;
+        flex-direction:column;
+        text-align:center;
+        border:1px solid gold;
+        width:93%;
+        line-height: 1.5rem;
+        height:50%;
+        border-radius:36px;
+        padding: 10px;
+    }
+    .mission-vision-div{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction:column;
+        width:98%;
+        gap:2rem;
+        height: 45rem;
+        border:1px solid black;
+    }
+    .founder-span-name{
+        font-size: 23px;
+    }
+    .profile-img-div{
+        margin-bottom: .5rem;
+    }
+    .profile-img{
+        width: 20rem;
+        border-radius: 10px;
+        margin-bottom: 0;
+        height: 17rem;
+    }
+    .founder-div{
+        width: 95%;
+    }
+    .founder-img-div{
+        width: 95%;
+        height: 25rem;
+    }
+    .team-title{
+        width: 99%;
+        margin-left: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .team-div{
+        width: 98%;
+    }
+    .text-desc{
+        font-size: 1.3rem;
+    }
+    h1{
+        font-size: 27px;
+        font-weight: bold;
+    }
+}
+@media screen and (max-width:350px) {
+    h1{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.4rem;
+        font-weight: bolder;
+    }
+    .text-unique-header{
+        font-size: 1.3rem;
+    }
+    .vision-div{
+        height: auto;
+    }
+   
+    .sarto-mission-text{
+        display: flex;
+        gap: 0;
+        width: 100%;
+        height:auto;
+    }
+
+    .mission-vision-div{
+        
+        width:98%;
+        gap:2rem;
+        height: 55rem;
+        border:1px solid black;
+    }
 }

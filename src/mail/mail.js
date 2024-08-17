@@ -7,9 +7,13 @@ const MailList = () => {
       <span className="mailDesc">Subscribe to get latest trending designs with Sarto 
         </span>
       <div className="mailInputContainer">
-        <input type="text" placeholder="Your Email" />
-        <button>Subscribe</button>
+        
+          <input type="text" placeholder="Your Email" /> 
+
+      <button className='btn-mail-div'>Subscribe</button> 
+
       </div>
+
     </div>
   )
 }
