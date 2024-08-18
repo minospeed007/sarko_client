@@ -494,6 +494,7 @@ width: 89%;
         width: 75%;
 
     }
+   
     .about_header_img{
         height: 100%;
         width: 100%;
@@ -557,7 +558,7 @@ width: 89%;
         width: 98%;
     }
     .mission-vision-div{
-        width: 90%;
+        width: 85%;
         height: auto;
     }
     .team-title{
@@ -579,7 +580,7 @@ width: 89%;
         width: 26%;
     }
     .founder-div{
-        width: 100%;
+        width: 90%;
     }
     
     .team-div{
@@ -587,6 +588,9 @@ width: 89%;
     }
     .unique-h1-div{
         margin-bottom: 2rem;
+    }
+    .unique-icon-div{
+        min-height: 20rem;
     }
     .unique-title-div{
         width:95%;
@@ -598,6 +602,7 @@ width: 89%;
 
 }
 @media screen and (max-width:900px) {
+   
     .text-span-container{
         display:flex;
         justify-content:center;
@@ -691,7 +696,9 @@ width: 89%;
         flex-direction:column;
         text-align:center;
         border:1px solid gold;
-        width:90%;
+        width:85%;
+        overflow-y: hidden;
+
         line-height: 1.5rem;
         height:49%;
         border-radius:36px;
@@ -703,7 +710,9 @@ width: 89%;
         flex-direction:column;
         text-align:center;
         border:1px solid gold;
-        width:90%;
+        width:85%;
+        overflow-y: hidden;
+
         line-height: 1.5rem;
         height:49%;
         border-radius:36px;
@@ -718,6 +727,7 @@ height:auto;
         justify-content:center;
         align-items:center;
         height:auto;
+        width: 85%;
         flex-direction:column; 
     }
 .founder-div{
@@ -838,7 +848,7 @@ h1{
 
     }
     .founder-div{
-        width: 80%;
+        width: 70%;
     }
     .team-title{
         width: 100%;
@@ -849,7 +859,7 @@ h1{
 }
 @media screen and (max-width:781px) {
     .mission-vision-div{
-        width: 85%;
+        width: 78%;
         height: auto;
     }
     .img-div-about{
@@ -866,8 +876,9 @@ h1{
 }
 
 @media screen and (max-width:600px) {
+    
     .mission-vision-div{
-        width: 95%;
+        width: 85%;
         height: auto;
     }
     .about-text-div{
@@ -876,6 +887,9 @@ h1{
 
         gap: 1rem;
     }
+.team-div{
+    width: 80%;
+}
 }
 
 @media screen and (max-width:490px) {
@@ -935,35 +949,38 @@ h1{
         flex-direction:column;
         text-align:center;
         border:1px solid gold;
-        width:93%;
+        width:98%;
+        background-color: yellow;
         line-height: 1.5rem;
-        height:50%;
+        overflow-y: hidden;
+
         border-radius:36px;
-        padding: 10px;
 
     }
     .sarto-text-desc{
         font-size: 1.4rem;
     }
+    
     .vision-div{
         display:flex;
         flex-direction:column;
         text-align:center;
         border:1px solid gold;
-        width:93%;
+        width:98%;
+        overflow-y: hidden;
         line-height: 1.5rem;
-        height:50%;
         border-radius:36px;
-        padding: 10px;
+    }
+    .sarto-mission-text{
+        width: 100%;
     }
     .mission-vision-div{
         display:flex;
         justify-content:center;
         align-items:center;
         flex-direction:column;
-        width:98%;
+        width:85%;
         gap:2rem;
-        height: 45rem;
         border:1px solid black;
     }
     .founder-span-name{
@@ -982,16 +999,16 @@ h1{
         width: 95%;
     }
     .founder-img-div{
-        width: 95%;
+        width: 85%;
         height: 25rem;
     }
     .team-title{
-        width: 99%;
+        width: 90%;
         margin-left: 1.5rem;
         margin-bottom: 1.5rem;
     }
     .team-div{
-        width: 98%;
+        width: 90%;
     }
     .text-desc{
         font-size: 1.3rem;
@@ -1013,6 +1030,9 @@ h1{
     .vision-div{
         height: auto;
     }
+    .mission-div{
+        height: auto;
+    }
    
     .sarto-mission-text{
         display: flex;
@@ -1023,7 +1043,7 @@ h1{
 
     .mission-vision-div{
         
-        width:98%;
+        width:85%;
         gap:2rem;
         height: 55rem;
         border:1px solid black;
