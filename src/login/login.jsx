@@ -11,27 +11,27 @@ const Login=()=>{
         <div className='input-div'>
 
             <div className='input-container'>
-            <div className='h2-div'> <h1 className='login-h2'>Sign in to Sarto</h1></div>
+            <div className='h2s-div'> <h1 className='logins-h2'>Sign in to Sarto</h1></div>
 
 
-              <div className='google-div'> Sign in with Google </div>
+              <div className='google-login-div'> Sign in with Google </div>
               <div className='hr-div'>
-                 <hr className='login-hr'/>
-                  <span className='or-text'>or
+                 <hr className='hr-log'/>
+                  <span className='or-texts'>or
 
                   </span>
-                  <hr className='login-hr'/>
+                  <hr className='hr-log'/>
               </div>
               <div className='login-input-div'>
               <input className='login-input' placeholder='Email or username'/>
 
               </div>
-              <div className='next-btn-div'>
-              <button role="button"  type="button" className='loginbtn' > Next
+              <div className='next-btns-div'>
+              <button role="button"  type="button" className='loginbtns' > Next
                  </button>
                  </div>
-                 <div className='reset-pwd-div'> 
-                 <button className='reset-pwd-btn'>Forgot password</button>
+                 <div className='reset-pwd-divs'> 
+                 <button className='reset-pwd-btns'>Forgot password</button>
              
               </div>
               <div className="signup-div">

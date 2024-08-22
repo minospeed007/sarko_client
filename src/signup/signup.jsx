@@ -18,17 +18,17 @@ const Signup=()=>{
             </div>
 
 
-              <div className='google-div'> Sign up with Google </div>
+              <div className='googles-div'> Sign up with Google </div>
               <div className='hr-div'>
-                 <hr className='login-hr'/>
-                  <span className='or-text'>or
+                 <hr className='logs-hr'/>
+                  <span className='or-texts'>or
 
                   </span>
-                  <hr className='login-hr'/>
+                  <hr className='logs-hr'/>
               </div>
               <Link to='/create_user' className='create-account-link'>
-              <div className='next-btn-div'>
-              <button role="button"  type="button" className='signup-btn' > Create an account
+              <div className='nexts-btn-div'>
+              <button   type="button" className='signup-btn' > Create an account
                  </button>
                  </div>
                  </Link>

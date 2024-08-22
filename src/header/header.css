@@ -52,16 +52,16 @@
 
 .header-signup-btn, .header-login-btn {
     width: 6rem;
-    height: 2.4rem;
+    height: 1.8rem;
     margin-top: .2rem;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 500;
     border-radius: .2rem;
     background-color: black;
     border: 1px solid rgb(255, 196, 0);
-    font-size: 1rem;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    font-size: .8rem;
+    padding-top: 5px;
+    padding-bottom: 5px;
     color:rgb(255, 196, 0);;
 }
 
@@ -98,8 +98,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 3rem;
-    width:3rem;
+    height: 2.5rem;
+    width:2.5rem;
     margin-top: .5rem;
     margin-right: .5rem;
     border-radius: 50%;
@@ -139,7 +139,7 @@
 }
 
 .close-icon{
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 @media screen and (min-width: 701px) {
     .about-login-div {
@@ -175,6 +175,7 @@
         width: 10rem;
         font-size: 1.2rem;
         height:3rem;
+        color: black;
         background-color: rgb(255,196,0);
       }
       .btn2-sidebar{
@@ -196,8 +197,32 @@
         flex-direction: column;
         line-height: 2;
         height: auto;
-        background-color: red;
         
       }
+
       
+}
+@media screen and (max-width:500px) {
+    .btn-sidebar{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: .2rem;
+        width: 10rem;
+        font-size: 1.1rem;
+        height:2.5rem;
+        background-color: rgb(255,196,0);
+      }
+      .btn2-sidebar{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 1px;
+        font-size: 1.1rem;
+        width: 10rem;
+        border: 2px solid rgb(255,196,0);
+        color: rgb(255,196,0);
+        height: 2.5rem;
+        background-color: rgb(32, 32, 31);
+      }
 }

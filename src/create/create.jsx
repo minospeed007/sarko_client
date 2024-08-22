@@ -43,7 +43,7 @@ const CreateUser = () => {
     <div className='login-parent-div'>
       <div className='input-div'>
         <div className='h2-div'>
-          <h1 className='login-h2'>Join Sarto</h1>
+          <h1 className='join-h2'>Join Sarto</h1>
         </div>
         <form className='input-container' onSubmit={handleSubmit}>
           <div className='input-div-container'>
@@ -89,9 +89,9 @@ const CreateUser = () => {
           </div>
           {errorMessage && <div className='error-message'>{errorMessage}</div>}
           <div className='next-btn-div'>
-            <button type="submit" className='login-btn'>Sign Up</button>
+            <button type="submit" className='logins-btn'>Sign Up</button>
           </div>
-          <div className='policy-div'>
+          <div className='policys-div'>
             <small className='small-text'>
               By signing up, you agree to the
               <span className='signup-span-text'> Terms of service </span>

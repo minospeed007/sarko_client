@@ -77,16 +77,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 12px;
+    border-radius: 10px;
     width: 10rem;
-    height: 1.8rem;
+    height: 2rem;
     background-color: rgb(255,196,0);
   }
   .btn2-div{
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 12px;
+    border-radius: 10px;
     width: 10rem;
     color: rgb(255,196,0);
     height: 2rem;
@@ -95,7 +95,7 @@
   .home-div {
     display: flex;
     flex-direction: column;
-    width: 85%;
+    width: 96%;
 
     align-items: flex-start;
     padding: 20px;
@@ -273,6 +273,24 @@ align-items: center;
       font-size: 1.1rem;
     }
 }
+@media screen and (max-width:475px) {
+  .wait-list-div{
+    width: 90%;
+  }
+  .h1-dot::after {
+    content: "•"; 
+    font-size: 23px; 
+    margin-right: 8px; 
+    color: rgb(255,196,0); 
+  }
+  .join-input{
+    width: 90%;
+    padding-left: 10px;
+  }
+  .join-btn{
+    width:90%;
+  }
+}
 @media screen and (max-width:420px ) {
   .home-div{
     width:97%;}
@@ -309,22 +327,11 @@ align-items: center;
       font-size:1.4rem;
     }
 }
-@media screen and (max-width:475px) {
-  .wait-list-div{
-    width: 90%;
-  }
-  .join-input{
-    width: 90%;
-    padding-left: 10px;
-  }
-  .join-btn{
-    width:90%;
-  }
-}
+
 @media screen and (max-width:400px) {
   .h1-dot::after {
     content: "•"; 
-    font-size: 25px; 
+    font-size: 23px; 
     margin-right: 8px; 
     color: rgb(255,196,0); 
   }
