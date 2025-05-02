@@ -16,8 +16,9 @@ function App() {
   return (
     <Router>
       <div className="app">
-        <Header />
-        <Routes>
+        <Header/>
+      <LiveStream/>
+      <Routes>
           <Route path="/" element={<Home />} />          
           <Route path="/about" element={<About />} />
           <Route path="/ws" element={<WS />} />
@@ -30,7 +31,6 @@ function App() {
 
 
         </Routes>
-        <liveStream/>
       </div>
     </Router>
   );
