@@ -3,7 +3,7 @@ import React, { useRef, useState } from 'react';
 import io from 'socket.io-client';
 import './liveStream.css'
 
-const socket = io('http://localhost:3000'); 
+const socket = io('https://styyze-server.onrender.com'); 
 
 const LiveStream = () => {
     const localVideoRef = useRef(null);
