@@ -30,6 +30,7 @@ function App() {
 
 
         </Routes>
+        <liveStream/>
       </div>
     </Router>
   );
