@@ -26,7 +26,7 @@ const CreateUser = () => {
     e.preventDefault();
     setErrorMessage(''); 
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/sign_up', formData);
+      const response = await axios.post('https://styyze-server.onrender.com/api/sign_up', formData);
       navigate('/login');
 
       if (response.status !== 200) {

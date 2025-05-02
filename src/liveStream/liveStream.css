@@ -1,0 +1,37 @@
+
+.live-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 60%;
+    background-color: white;
+}
+.btn-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: pink;
+    gap: 1rem;
+    width: 20rem;
+    height: 10rem;
+}
+
+.live-btn{
+    width: 20rem;
+    height: 6rem;
+    border-radius: .5rem;
+    background-color: green;
+    color: white;
+    font-size: 1rem;
+}
+
+.live-btn2{
+    width: 20rem;
+    height: 6rem;
+    border-radius: .5rem;
+    background-color: grey;
+    font-size: 1rem;
+    color: black;
+}
