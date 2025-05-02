@@ -1,16 +1,17 @@
-// App.js
 import React, { useRef, useState } from 'react';
 import io from 'socket.io-client';
-import './liveStream.css'
+import './liveStream.css';
 
 const socket = io('https://styyze-server.onrender.com'); 
 
 const LiveStream = () => {
     const localVideoRef = useRef(null);
     const remoteVideoRef = useRef(null);
-    const [peerConnection] = useState(new RTCPeerConnection());
+    const [peerConnection] = useState(new RTCPeerConnection({
+        iceServers: [{ urls: 'stun:stun.l.google.com:19302' }]
+    }));
 
-    // Start the local video stream
+    // Start local video stream
     const startStream = async () => {
         const localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
         localVideoRef.current.srcObject = localStream;
@@ -32,7 +33,12 @@ const LiveStream = () => {
 
     // Handle connection signals
     socket.on('offer', async (offer) => {
+        if (peerConnection.signalingState !== 'stable') {
+            console.warn('Ignoring new offer while negotiation is in progress.');
+            return;
+        }
         await peerConnection.setRemoteDescription(new RTCSessionDescription(offer));
+
         const answer = await peerConnection.createAnswer();
         await peerConnection.setLocalDescription(answer);
         socket.emit('answer', answer);
@@ -43,6 +49,10 @@ const LiveStream = () => {
     });
 
     socket.on('ice-candidate', async (candidate) => {
+        if (!peerConnection.remoteDescription) {
+            console.warn('Skipping ICE candidate until remoteDescription is set.');
+            return;
+        }
         try {
             await peerConnection.addIceCandidate(candidate);
         } catch (error) {
@@ -62,8 +72,8 @@ const LiveStream = () => {
             <video ref={localVideoRef} autoPlay muted style={{ width: '400px' }} />
             <video ref={remoteVideoRef} autoPlay style={{ width: '400px' }} />
             <div className='btn-div'>
-            <button  className='live-btn' onClick={startStream}>Start Stream</button>
-            <button  className='live-btn2' onClick={createOffer}>Connect</button>
+                <button className='live-btn' onClick={startStream}>Start Stream</button>
+                <button className='live-btn2' onClick={createOffer}>Connect</button>
             </div>
         </div>
     );
