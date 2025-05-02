@@ -1,0 +1,40 @@
+.WS-div{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ flex-direction: column;
+    background-color: white;
+    width: 95%;
+}
+.form-div{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:90%;
+    flex-direction:column;
+    background-color:yellow;
+
+}
+.follow{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+::placeholder{
+    font-size:1.2rem;
+}
+.post-content-div{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:80%;
+}
+.text-area{
+    padding-left:1rem;
+    height:14rem;
+    width:60%;
+}
+
