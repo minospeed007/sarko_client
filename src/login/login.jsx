@@ -1,21 +1,23 @@
 import {useState} from 'react';
 import './login.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [login, setLogin] = useState();
-
+const navigate=useNavigate();
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('https://styyze-server.onrender.com/api/userLogin', 
+            const response = await axios.post('http://localhost:5000/api/userLogin', 
             { username, password });
+            localStorage.setItem('token', response.data.access_token);
+            console.log('Token Stored:', response.data.access_token);
             console.log('Response:', response.data);
             console.log('Button Clicked');
-
+navigate('/ws')
         } catch (error) {
             console.log('Error:', error);
         }

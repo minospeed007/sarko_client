@@ -8,11 +8,11 @@ const WS = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post('http://localhost:5000/api/userProfile', {
-        id: "6800e3fd62bd8f1bbca1dc8b",
+      const res = await axios.post('https://styyze-server.onrender.com/api/userProfile', {
+        id: "6807fa0de22d620d27c58d15",
         name: 'Nonso',
-        username: "Mino45",
-        bio: "Styyze god",
+        username: "Mino450",
+        bio: "Styyze lord",
         avatarUrl:"https://www.straitstimes.com/sport/basketball/la-lakers-take-aim-at-no-3-spot-against-no-2-seeds-houston-rockets",
         coverPhotoUrl:"https://www.straitstimes.com/sport/basketball/la-lakers-take-aim-at-no-3-spot-against-no-2-seeds-houston-rockets",
         
@@ -38,7 +38,11 @@ const WS = () => {
    postData: {
                   
                     caption: "Heading to Paris",
-                    file: ["bbc.com", "image.com"], 
+                    file: [
+                      {url:"bbcimage.com"},
+                      {img_id: "162394gresdhgjfk"}
+
+                    ], 
                     location: "New York",
                     tags: ["Prada", "Fendi", "LX"], 
                 }
@@ -73,13 +77,17 @@ const WS = () => {
     e.preventDefault();
 
     try {
-      const userId="6807b89cda75c3b3b9a1bdbb";
+      const token = localStorage.getItem("token"); 
+      const userId="6807b89cda75c3b3b9a1bdbb"; 
       const res = await axios.patch('http://localhost:5000/api/updateUserProfile', {
-        
         name: 'Nonny',
-        userId
-        
-      });
+        userId},
+        {
+          headers: {
+              Authorization: `Bearer ${token}`, 
+          },
+      }
+      );
 
       setNewProfile(res?.data?.data);
       console.log("User created:", res?.data?.data);
@@ -88,7 +96,7 @@ const WS = () => {
     }
   };
   const fetchUserProfile = async () => {
-    const userId="6800e3fd62bd8f1bbca1dc8b";
+    const userId="6807fa0de22d620d27c58d15";
     try {
         const response = await axios.get(`http://localhost:5000/api/getUserProfile/${userId}`);
         console.log("User Profile:", response.data.data);
@@ -116,12 +124,9 @@ const WS = () => {
       <button type='button' onClick={fetchUserProfile}>Get Profile</button><br/>
       
       <button type='button' onClick={handleSignup}>Create User</button><br/>
-      <button type='button' onClick={handleTweet }>Post
+      <button type='button' onClick={handleProfileUpdate }>Update profile</button>
 
-
-        
-      </button>
-
+      <button type='button' onClick={handleTweet }>Post</button>
 
       {newProfile && (
         <div className='profile-info'>
