@@ -10,7 +10,7 @@ import Signup from './signup/signup';
 import CreateUser from './create/create';
 import About from './about/about';
 import WS from './websocket/websocket';
-import verifypayment from './websocket/verify';
+import VerifyPayment from './websocket/verify';
 
 import Xpost from './websocket/xpost';
 
@@ -32,7 +32,7 @@ function App() {
 
 
           <Route path="/ws" element={<WS />} />
-                    <Route path="/payment-success" element={<verifypayment />} />
+          <Route path="/payment-success" element={<VerifyPayment />} />
 
            <Route path="/xpost" element={<Xpost />} />
 
