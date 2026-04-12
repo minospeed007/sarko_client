@@ -1,0 +1,39 @@
+import { useState, useEffect } from 'react';
+import debounce from 'lodash.debounce';
+import axios from 'axios';
+
+function SearchBox() {
+  const [query, setQuery] = useState('');
+  const [results, setResults] = useState([]);
+
+  
+  const debouncedSearch = debounce(async (searchTerm) => {
+    if (searchTerm.trim() === '') return;
+    try {
+      const res = await axios.get(`/api/search?q=${searchTerm}`);
+      setResults(res.data);
+    } catch (err) {
+      console.error('Search error:', err);
+    }
+  }, 500); 
+
+  useEffect(() => {
+    debouncedSearch(query);
+    return () => debouncedSearch.cancel(); // Cleanup on unmount
+  }, [query]);
+
+  return (
+    <>
+      <input
+        type="text"
+        placeholder="Search..."
+        onChange={(e) => setQuery(e.target.value)}
+      />
+      <ul>
+        {results.map((item) => (
+          <li key={item._id}>{item.name}</li>
+        ))}
+      </ul>
+    </>
+  );
+}

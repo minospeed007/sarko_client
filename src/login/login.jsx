@@ -9,20 +9,32 @@ const Login = () => {
     const [login, setLogin] = useState();
 const navigate=useNavigate();
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await axios.post('http://localhost:5000/api/userLogin', 
-            { username, password });
-            localStorage.setItem('token', response.data.access_token);
-            console.log('Token Stored:', response.data.access_token);
-            console.log('Response:', response.data);
-            console.log('Button Clicked');
-navigate('/ws')
-        } catch (error) {
-            console.log('Error:', error);
-        }
-    };
-    
+  e.preventDefault();
+  try {
+    const response = await axios.post('http://localhost:5000/api/userLogin', 
+         { username, password }, 
+         { withCredentials: true }
+        );
+
+    const currentUserId = response.data.details._id;
+    localStorage.setItem('userId', currentUserId)
+    console.log('Logged in as:', currentUserId);
+
+    // For testing: hardcode the partner’s ID
+    const userA = "6953bf9a51be4dd100ffa971";
+    const userB = "6947b82dba67ae6dd22db7df";
+
+
+    // Decide who the partner is
+    const partnerId = currentUserId === userA ? userB : userA;
+
+    // Navigate to /chat/:partnerId
+    //navigate(`/chat/${partnerId}`);
+    navigate('/ws')
+  } catch (error) {
+    console.log('Error:', error);
+  }
+};
 
     return (
         <>
