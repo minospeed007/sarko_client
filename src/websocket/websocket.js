@@ -89,7 +89,7 @@ const payNow = async () => {
   const preorderId='69adf1caceab0d16224e79fc';
   try {
     const response = await axios.post(
-      "http://localhost:5000/api/product/order/pay",
+      "https://styyze-server.onrender.com/api/product/order/pay",
       {preorderId},
         
       {withCredentials: true,}
