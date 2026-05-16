@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { io } from 'socket.io-client';
+import { Link, useNavigate } from 'react-router-dom';
 
 const socket = io('http://localhost:5000', {
   withCredentials: true,
@@ -11,6 +12,7 @@ const WS = () => {
   const [clientId, setClientId] = useState(null);
   const [refresh, setRefresh]=useState('')
   const [getPost, setGetPost]= useState('');
+  const navigate= useNavigate();
  useEffect(() => {
   socket.on('client-id', (id) => {
     console.log("Received clientId from server:", id);
@@ -86,11 +88,15 @@ const createCheckoutDetail = async () => {
   }
 };
 const payNow = async () => {
-  const preorderId='69adf1caceab0d16224e79fc';
+  const preorderId='69a97663faf2359b2919f615';
+  const email ='nonso@styyze.com'
   try {
     const response = await axios.post(
       "https://styyze-server.onrender.com/api/product/order/pay",
-      {preorderId},
+      { 
+       preorderId:preorderId,
+       email: email
+      },
         
       {withCredentials: true,}
     );
@@ -150,6 +156,68 @@ const getPreOrderId = async()=>{
     console.log(err);
   }
 }
+const editUserProfile = async () => {
+  try {
+     const userId='6947b82dba67ae6dd22db7df'
+     const imageUrl= 'https://cdn.nba.com/headshots/nba/latest/1040x760/1628983.png'
+ 
+    const response = await axios.patch(
+      'http://localhost:5000/api/edit_userProfile',{userId : userId, avatarUrl:imageUrl},
+      {
+        withCredentials: true
+      }
+    );
+
+    console.log("Cart deleted:", response.data.message);
+
+  } catch (error) {
+    console.error(
+      "Delete cart error:",
+      error.response?.data?.message || error.message
+    );
+  }
+};
+// log out
+const logout = async () => {
+  try {
+
+    const response = await axios.post(
+      'http://localhost:5000/api/logout',
+      {
+        withCredentials: true
+      }
+    );
+navigate('/')
+    console.log("logout", response.data.message);
+
+  } catch (error) {
+    console.error(
+      "Delete Post error:",
+      error.response?.data?.message || error.message
+    );
+  }
+};
+// delete post
+const deletePost = async () => {
+  try {
+    const postId = "6a006aaf99b79ae34e193d19";
+
+    const response = await axios.delete(
+      `http://localhost:5000/api/deletePost/${postId}`,
+      {
+        withCredentials: true
+      }
+    );
+
+    console.log("Post deleted:", response.data.message);
+
+  } catch (error) {
+    console.error(
+      "Delete Post error:",
+      error.response?.data?.message || error.message
+    );
+  }
+};
 // delete cart
 const deleteEntireCart = async () => {
   try {
@@ -354,10 +422,9 @@ const updateCheckoutDetails = async () => {
         paymentInfo: {
           paymentProvider: "stripe",
           paymentMethod: "card"
-        }
+        },
 
-      }
-    );
+  });
 
     console.log("Updated checkout:", response.data);
 
@@ -425,6 +492,39 @@ const handleCreateProduct= async()=>{
       console.log(err);
     }
   }
+  // search product
+  const searchProduct= async()=>{
+    try{
+      const res = await axios.get('http://localhost:5000/api/products/search',
+        {
+      params: {
+        q: 'queen'
+      }
+    }
+      )
+      console.log(res?.data?.data)
+    }catch(err){
+      console.log(err);
+    }
+  }
+
+// get shippinng details
+const getUserShippingDetails= async()=>{
+  const preorderId='69a97663faf2359b2919f615';
+    try{
+      const res = await axios.get(`http://localhost:5000/api/product/shipping/details/${preorderId}`,
+        {
+        
+        withCredentials: true
+      }
+    
+      )
+      console.log(res?.data?.checkoutDetails);
+      console.log(res?.data?.preorder);
+    }catch(err){
+      console.log(err);
+    }
+  }
 const handleUserMessages= async()=>{
     const conversationId = "6947af4dd34d19d7f17c2656"; 
     try{
@@ -434,7 +534,6 @@ const handleUserMessages= async()=>{
       console.log(err);
     }
   }
-
   const handleGetUserChatList= async()=>{
     const userId = "6947b82dba67ae6dd22db7df"; 
     try{
@@ -588,9 +687,9 @@ console.log(setRefresh(res?.data?.user))
 
     try {
       const payload={
-      userId: "689a5e91e78184dc6eb2a06e", 
+      userId: "6947b82dba67ae6dd22db7df", 
       clientId: clientId, 
-      caption: "World Fashion  Paris",
+      caption: "World Fashion Live",
       media: [{mediaUrl:"bbcimage.com"},{mediaId: "162394gresdhgjfk"}], 
       location: "New York",
       tags: ["Prada", "Fendi", "LX"], 
@@ -624,22 +723,21 @@ console.log(setRefresh(res?.data?.user))
 
   const handleProfileUpdate = async (e) => {
     e.preventDefault();
-
+    const userId='6947b82dba67ae6dd22db7df'
+const imageUrl= 'https://cdn.nba.com/headshots/nba/latest/1040x760/1628983.png'
     try {
-      const token = localStorage.getItem("token"); 
-      const userId="6807b89cda75c3b3b9a1bdbb"; 
-      const res = await axios.patch('http://localhost:5000/api/updateUserProfile', {
-        name: 'Nonny',
-        userId},
-        {
-          headers: {
-              Authorization: `Bearer ${token}`, 
-          },
-      }
+      const res = await axios.patch('http://localhost:5000/api/updateUserProfile', 
+        { avatarUrl: imageUrl,
+         userId: userId},
+  
+  {
+    withCredentials: true,
+  }
+      
       );
 
       setNewProfile(res?.data?.data);
-      console.log("User created:", res?.data?.data);
+      console.log("User profile updated:", res?.data?.data);
     } catch (err) {
       console.error("Error creating profile:", err);
     }
@@ -667,6 +765,18 @@ console.log(setRefresh(res?.data?.user))
   return (
     <div className='UserProfileForm'>
       <h5>Create User Profile</h5> 
+            <button type='button' onClick={getUserShippingDetails}>shipping details</button><br/>
+
+                      <button type='button' onClick={searchProduct}>Search product</button><br/>
+
+                <button type='button' onClick={logout}>Logout</button><br/>
+
+          <button type='button' onClick={deletePost}>Delete Post</button><br/>
+
+            <button type='button' onClick={editUserProfile }>Edit profile</button><br/>
+
+      <button type='button' onClick={handleProfileUpdate }>Update profile</button><br/>
+
       <button type='button' onClick={createCheckoutDetail }>Add Pay info</button><br/>
 
         <button type='button' onClick={payNow}>Pay Now</button><br/>
@@ -726,7 +836,6 @@ console.log(setRefresh(res?.data?.user))
       <button type='button' onClick={fetchUserProfile}>Get Profile</button><br/>
       
       <button type='button' onClick={handleSignup}>Create User</button><br/>
-      <button type='button' onClick={handleProfileUpdate }>Update profile</button><br/>
 
       <button type='button' onClick={handleTweet }>Post</button> <br/>
       <button type='button' onClick={handlePostLikes }>Get followers</button> <br/>
