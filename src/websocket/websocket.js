@@ -88,7 +88,7 @@ const createCheckoutDetail = async () => {
   }
 };
 const payNow = async () => {
-  const preorderId='69a97663faf2359b2919f615';
+  const preorderId='69a5a9084ab2246e209d7ab4';
   const email ='nonso@styyze.com'
   try {
     const response = await axios.post(
@@ -133,6 +133,30 @@ const getCartById = async()=>{
   }
 }
 const getCheckOutOrder= async()=>{
+    const orderId = "698b2cfa3114f1ea2a17d480";
+    try{
+      const res = await axios.get(`http://localhost:5000/api/product/order/${orderId}`)
+      console.log(res?.data?.data)
+    }catch(err){
+      console.log(err);
+    }
+  }
+  // create Cart Items
+  const createCartItems = async()=>{
+  try{
+    const res = await axios.post('http://localhost:5000/api/cart/items/',
+      {
+        productId: "69ab0586820dab03a85a0f8c",
+        quantity:1},
+        {withCredentials:true }
+      
+    );
+    console.log(res?.data?.data);
+  }catch(err){
+    console.log(err);
+  }
+}
+const getCheckOutOrders= async()=>{
     const orderId = "698b2cfa3114f1ea2a17d480";
     try{
       const res = await axios.get(`http://localhost:5000/api/product/order/${orderId}`)
@@ -751,6 +775,8 @@ const imageUrl= 'https://cdn.nba.com/headshots/nba/latest/1040x760/1628983.png'
         console.error("Error fetching user profile:", error);
     }
 };
+//create preorder
+
  const likePost = async () => {
     const userId="6800e3fd62bd8f1bbca1dc8b";
     try {
@@ -764,7 +790,11 @@ const imageUrl= 'https://cdn.nba.com/headshots/nba/latest/1040x760/1628983.png'
 };
   return (
     <div className='UserProfileForm'>
+
+
       <h5>Create User Profile</h5> 
+                  <button type='button' onClick={ createCartItems}> create Items</button><br/>
+
             <button type='button' onClick={getUserShippingDetails}>shipping details</button><br/>
 
                       <button type='button' onClick={searchProduct}>Search product</button><br/>
