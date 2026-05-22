@@ -49,7 +49,7 @@ const addToCart = async () => {
 };
 const createCheckoutDetail = async () => {
 
-  const preOrderId = "69adf1caceab0d16224e79fc";
+  const preOrderId = "6a0f7c3edf76bc10f2b655c6";
 
 
   try {
@@ -88,7 +88,7 @@ const createCheckoutDetail = async () => {
   }
 };
 const payNow = async () => {
-  const preorderId='69a5a9084ab2246e209d7ab4';
+  const preorderId='6a0f7c3edf76bc10f2b655c6';
   const email ='nonso@styyze.com'
   try {
     const response = await axios.post(
@@ -146,7 +146,7 @@ const getCheckOutOrder= async()=>{
   try{
     const res = await axios.post('http://localhost:5000/api/cart/items/',
       {
-        productId: "69ab0586820dab03a85a0f8c",
+        productId: "69aad6e91570251e6c5eb9d9",
         quantity:1},
         {withCredentials:true }
       
@@ -402,7 +402,7 @@ const createCheckoutDetails = async () => {
 
   try {
 
-    const preorderId = "69adf1caceab0d16224e79fc";
+    const preorderId = "6a0f7c3edf76bc10f2b655c6";
 
     const response = await axios.post(
       `http://localhost:5000/api/product/order/checkout-details/${preorderId}`,
@@ -465,7 +465,7 @@ const createOrder = async()=>{
     const response = await axios.post(
       'http://localhost:5000/api/product/preorder',
       {
-        cartId: '69a5a9084ab2246e209d7ab4',
+        cartId: '6a0f7731df76bc10f2b655bd',
         
         
       },
