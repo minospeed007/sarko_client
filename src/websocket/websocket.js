@@ -49,7 +49,7 @@ const addToCart = async () => {
 };
 const createCheckoutDetail = async () => {
 
-  const preOrderId = "6a12f480a37ac45733107422";
+  const preOrderId = "6a13137cbd98e6b674771c1b";
 
 
   try {
@@ -88,7 +88,7 @@ const createCheckoutDetail = async () => {
   }
 };
 const payNow = async () => {
-  const preorderId='6a12f480a37ac45733107422';
+  const preorderId='6a13137cbd98e6b674771c1b';
   const email ='nonso@styyze.com'
   try {
     const response = await axios.post(
@@ -146,7 +146,7 @@ const getCheckOutOrder= async()=>{
   try{
     const res = await axios.post('http://localhost:5000/api/cart/items/',
       {
-        productId: "69aad6e91570251e6c5eb9d9",
+        productId: "69aad8e91570251e6c5eb9e6",
         quantity:1},
         {withCredentials:true }
       
