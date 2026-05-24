@@ -49,7 +49,7 @@ const addToCart = async () => {
 };
 const createCheckoutDetail = async () => {
 
-  const preOrderId = "6a0f7c3edf76bc10f2b655c6";
+  const preOrderId = "6a12f480a37ac45733107422";
 
 
   try {
@@ -88,7 +88,7 @@ const createCheckoutDetail = async () => {
   }
 };
 const payNow = async () => {
-  const preorderId='6a0f7c3edf76bc10f2b655c6';
+  const preorderId='6a12f480a37ac45733107422';
   const email ='nonso@styyze.com'
   try {
     const response = await axios.post(
