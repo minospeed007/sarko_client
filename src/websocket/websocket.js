@@ -12,17 +12,311 @@ const WS = () => {
   const [clientId, setClientId] = useState(null);
   const [refresh, setRefresh]=useState('')
   const [getPost, setGetPost]= useState('');
+  const [frontImageFile,setFrontImageFile] = useState(null);
+  const [sideImageFile,setSideImageFile] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [statusMessage, setStatusMessage] = useState('');
   const navigate= useNavigate();
  useEffect(() => {
-  socket.on('client-id', (id) => {
-    console.log("Received clientId from server:", id);
-    setClientId(id);
+  socket.on("connect", () => {
+    console.log("Connected:", socket.id);
   });
 
-  return () => {
-    socket.off('client-id');
+  socket.on("connect_error", (err) => {
+    console.log("Connect Error:", err.message);
+  });
+
+  socket.on("client-id", (id) => {
+    console.log("Received client-id:", id);
+  });   
+}, []);
+
+// create garment type
+const createGarmentType = async () => {
+  try {
+    const response = await axios.post(
+      'http://localhost:5000/api/garment-types',{name:"Classic Oldie"},
+      
+      {
+        withCredentials:true 
+         
+      }
+    );
+
+    console.log(response.data);
+  } catch (error) {
+    console.error(
+      error.response?.data || error.message
+    );
   }
-}, []); 
+};
+//accpet invitation
+const acceptInvitation = async () => {
+  const houseId= '6953b1343c844ad1e7274e08'
+  try {
+    const response = await axios.patch(
+      `http://localhost:5000/api/staff/invitation/accept/${houseId}`,{},
+      
+      {
+        withCredentials:true 
+         
+      }
+    );
+
+    console.log(response.data);
+  } catch (error) {
+    console.error(
+      error.response?.data || error.message
+    );
+  }
+};
+// house response with a quote
+const respondToQuote = async () => {
+  const projectId = "6a5cb70f749b8083beb624c8";
+
+  try {
+    const response = await axios.patch(
+      `http://localhost:5000/api/quotes/${projectId}/respond/house`,
+      {
+        amount: 500,
+        note: "Estimated completion time is 5 working days."
+      },
+      {
+        withCredentials: true 
+      }
+    );
+
+    console.log(response.data);
+  } catch (error) {
+    console.error(
+      error.response?.data || error.message
+    );
+  }
+};
+
+// customer response
+const customerRespondToQuote = async () => {
+  const projectId = "6a5cb70f749b8083beb624c8";
+
+  try {
+    const response = await axios.patch(
+      `http://localhost:5000/api/quotes/${projectId}/respond/customer`,
+      {
+        response: "accepted"
+        
+      },
+      {
+        withCredentials: true 
+      }
+    );
+
+    console.log(response.data);
+  } catch (error) {
+    console.error(
+      error.response?.data || error.message
+    );
+  }
+};
+
+// src/services/orderService.js
+const createPriceList = async () => {
+  try {
+    const response = await axios.post(
+      "http://localhost:5000/api/pricelist/create",
+      {
+        
+        garmentType: "agbada",
+        basePrice: 50000,
+        premiumPrice: 75000,
+        currency: "NGN",
+      },
+      {
+        withCredentials:true 
+         
+      }
+    );
+
+    console.log(response.data);
+  } catch (error) {
+    console.error(
+      error.response?.data || error.message
+    );
+  }
+};
+
+// House membership
+
+const createHouseMembership = async () => {
+
+    try {
+
+        const response = await axios.post("http://localhost:5000/api/houses/staff/invite",
+          {username:"nozzy12"},
+    {
+        withCredentials:true
+    }
+);
+
+        console.log(
+            "House membership created:",
+            response.data
+        );
+
+
+    }
+
+    catch(error){
+
+        console.log(
+            "Create Project Error:",
+            error.response?.data ||
+            error.message
+        );
+
+    }
+
+};
+
+
+
+const createProject = async () => {
+
+    try {
+
+        const response = await axios.post(
+            "http://localhost:5000/api/project/create",
+            {v
+                type: "create_style",
+
+                houseId: "6947b82dba67ae6dd22db7df"
+
+                sourcePostId: "69aad6e91570251e6c5eb9d9", 
+                sourceProductId: null,
+                sourceCollectionId: null,
+
+
+                garmentType: "classic oldie",
+
+                wantsEmbellishment: true,
+
+
+                references: [
+                    "https://res.cloudinary.com/styyze-media/image/upload/v1772803814/x54anncladjerhvischk.webp",
+                    "https://res.cloudinary.com/styyze-media/image/upload/v1772804327/ki9j1amgdc3sbxv5fk6i.webp"
+                ],
+
+
+                measurementProfileId: "6a5134871e04300aea8f670f",
+                   
+
+
+                fabricSource:  "house_provides",
+                   
+
+
+                eventDate:
+                    "2026-08-15",
+
+
+                eventRole:
+                    "groom",
+
+
+                notes:
+                    "Need a premium classic oldie design with embroidery details."
+
+            },
+
+            {
+                withCredentials:true
+            }
+
+        );
+
+
+        console.log(
+            "Project created:",
+            response.data
+        );
+
+
+    }
+
+    catch(error){
+
+        console.log(
+            "Create Project Error:",
+            error.response?.data ||
+            error.message
+        );
+
+    }
+
+};
+
+
+
+
+// click to upload image
+const TARGET_URL =
+  "https://styyzeserver-production.up.railway.app/api/measurements/analyze";
+
+
+const handleUploadClick = async () => {
+
+  const formData = new FormData();
+
+  formData.append(
+    "userId",
+    "6947b82dba67ae6dd22db7df"
+  );
+
+  formData.append(
+    "userHeightCm",
+    180
+  );
+
+  formData.append(
+    "front_image",
+    frontImageFile
+  );
+
+  formData.append(
+    "side_image",
+    sideImageFile
+  );
+
+
+  try {
+
+    const response = await axios.post(
+      TARGET_URL,
+      formData,
+      {
+        headers:{
+          "Content-Type":"multipart/form-data"
+        }
+      }
+    );
+
+
+    console.log(
+      "Body measurements:",
+      response?.data?.data
+    );
+
+
+  } catch(error){
+
+    console.error(
+      "AI model error:",
+      error.response?.data
+    );
+
+  }
+};
+// Run the test
+
 
 const addToCart = async () => {
   try {
@@ -432,7 +726,7 @@ const updateCheckoutDetails = async () => {
 
   try {
 
-    const preOrderId = "69adf1caceab0d16224e79fc";
+    const preOrderId = "6a13137cbd98e6b674771c1b";
 
     const response = await axios.patch(
       `http://localhost:5000/api/product/order/updateCheckoutDetails/${preOrderId}`,
@@ -451,6 +745,56 @@ const updateCheckoutDetails = async () => {
   });
 
     console.log("Updated checkout:", response.data);
+
+  } catch (error) {
+
+    console.error(
+      error.response?.data || error.message
+    );
+
+  }
+};
+// delete product
+
+const deleteProduct = async () => {
+  try {
+    const productId = "6a160d850818b37674a83eb3";
+
+    const response = await axios.delete(
+      `http://localhost:5000/api/product/delete/${productId}`,
+      {
+        withCredentials: true,
+      }
+    );
+
+    console.log("Product deleted:", response?.data?.message);
+  } catch (error) {
+    console.error(
+      error.response?.data || error.message
+    );
+  }
+};
+
+
+// update product
+const updateProduct = async () => {
+
+  try {
+
+    const productId = "6a160d850818b37674a83eb3";
+
+    const response = await axios.patch(
+  `http://localhost:5000/api/product/update/${productId}`,
+  {
+    title: "Top Gun",
+    stock: 12
+  },
+  {
+    withCredentials: true
+  }
+);
+
+    console.log("Updated product:", response.data);
 
   } catch (error) {
 
@@ -498,6 +842,7 @@ const handleCreateProduct= async()=>{
         color: "Gold",
         category: "Clothing",
         status: "available",
+        stock:15,
         media: [
           {
             mediaUrl: "https://res.cloudinary.com/demo/image/upload/v1/ankara1.jpg",
@@ -792,7 +1137,46 @@ const imageUrl= 'https://cdn.nba.com/headshots/nba/latest/1040x760/1628983.png'
     <div className='UserProfileForm'>
 
 
-      <h5>Create User Profile</h5> 
+      <h5>Create User Profile</h5>
+      
+      <button type='button' onClick={customerRespondToQuote}> respond</button><br/>
+
+      <button type='button' onClick={respondToQuote}> Qoute price</button><br/>
+
+      <button type='button' onClick={createGarmentType}> Create garment type</button><br/>
+
+          <button type='button' onClick={acceptInvitation}> Accept invite</button><br/>
+
+    <button type='button' onClick={createHouseMembership}> invite staff</button><br/>
+
+                     <button type='button' onClick={createProject}> create project</button><br/>
+
+               <button type='button' onClick={createPriceList}> create pricelist</button><br/>
+
+
+
+     
+      
+      <input
+ type="file"
+ accept="image/*"
+ onChange={(e)=>setFrontImageFile(e.target.files[0])}
+/>
+
+
+<input
+ type="file"
+ accept="image/*"
+ onChange={(e)=>setSideImageFile(e.target.files[0])}
+/>
+   <button type='button' onClick={  handleUploadClick}> upload images</button><br/>
+
+      
+<br/>
+         <button type='button' onClick={  deleteProduct}> delete product</button><br/>
+
+                        <button type='button' onClick={  updateProduct}> update product</button><br/>
+
                   <button type='button' onClick={ createCartItems}> create Items</button><br/>
 
             <button type='button' onClick={getUserShippingDetails}>shipping details</button><br/>
