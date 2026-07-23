@@ -188,7 +188,7 @@ const createProject = async () => {
             {
                 type: "create_style",
 
-                houseId: "6947b82dba67ae6dd22db7df"
+                houseId: "6947b82dba67ae6dd22db7df",
 
                 sourcePostId: "69aad6e91570251e6c5eb9d9", 
                 sourceProductId: null,
