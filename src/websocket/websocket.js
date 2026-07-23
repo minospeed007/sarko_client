@@ -185,7 +185,7 @@ const createProject = async () => {
 
         const response = await axios.post(
             "http://localhost:5000/api/project/create",
-            {v
+            {
                 type: "create_style",
 
                 houseId: "6947b82dba67ae6dd22db7df"
